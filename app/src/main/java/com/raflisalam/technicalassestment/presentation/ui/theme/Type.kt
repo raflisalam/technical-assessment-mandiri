@@ -1,4 +1,4 @@
-package com.raflisalam.technicalassestment.ui.theme
+package com.raflisalam.technicalassestment.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
