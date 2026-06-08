@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.raflisalam.technicalassestment.presentation.ui.detail.MovieDetailScreen
 import com.raflisalam.technicalassestment.presentation.ui.genre.GenreScreen
 import com.raflisalam.technicalassestment.presentation.ui.movies.MoviesScreen
 
@@ -37,6 +38,21 @@ fun AppNavGraph() {
             MoviesScreen(
                 genreId = genreId,
                 genreName = genreName,
+                onBackClick = { navController.popBackStack() },
+                onMovieClick = { movieId ->
+                    navController.navigate("detail/$movieId")
+                }
+            )
+        }
+        composable(
+            route = "detail/{movieId}",
+            arguments = listOf(
+                navArgument("movieId") { type = NavType.IntType }
+            )
+        ) { backStackEntry ->
+            val movieId = backStackEntry.arguments?.getInt("movieId") ?: return@composable
+            MovieDetailScreen(
+                movieId = movieId,
                 onBackClick = { navController.popBackStack() }
             )
         }
