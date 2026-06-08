@@ -48,7 +48,6 @@ class MoviesViewModel @Inject constructor(
 
     init {
         loadGenres()
-        discoverMovies()
     }
 
     fun loadGenres() {
